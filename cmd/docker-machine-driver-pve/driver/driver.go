@@ -287,11 +287,15 @@ func (d *Driver) GetIP() (string, error) {
 
 	if len(possibleIPv4s) > 0 {
 		slices.Sort(possibleIPv4s)
+		d.IPAddress = possibleIPv4s[0]
+
 		return possibleIPv4s[0], nil
 	}
 
 	if len(possibleIPv6s) > 0 {
 		slices.Sort(possibleIPv6s)
+		d.IPv6Address = possibleIPv6s[0]
+
 		return possibleIPv6s[0], nil
 	}
 
